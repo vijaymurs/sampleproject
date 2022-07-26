@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sampleproject.dto.UserRequest;
 import com.sampleproject.entity.UserEntity;
 import com.sampleproject.service.UserService;
 
@@ -28,11 +29,11 @@ public class UserController {
 	UserService userService;
 	
 	@PostMapping(value = "/saveUser", produces = MediaType.APPLICATION_JSON_VALUE )
-	public HttpEntity<UserEntity> welcome(@RequestBody UserEntity userEntity) {
+	public HttpEntity<UserRequest> welcome(@RequestBody UserRequest userRequest) {
 
-		UserEntity av = userService.save(userEntity);
+		UserRequest av = userService.save(userRequest);
 		
-		return new HttpEntity<UserEntity>(av);
+		return new HttpEntity<UserRequest>(av);
 	}
 
 }

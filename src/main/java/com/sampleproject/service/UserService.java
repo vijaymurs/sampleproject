@@ -1,7 +1,7 @@
 package com.sampleproject.service;
 
-import com.sampleproject.entity.UserEntity;
+import com.sampleproject.dto.UserRequest;
 
 public interface UserService {
-	public UserEntity save(UserEntity userEntity);
+	public UserRequest save(UserRequest userRequest);
 }
