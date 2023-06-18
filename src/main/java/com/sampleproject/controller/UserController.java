@@ -3,7 +3,6 @@
  */
 package com.sampleproject.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
@@ -23,15 +22,15 @@ import com.sampleproject.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
-	
-	@PostMapping(value = "/saveUser", produces = MediaType.APPLICATION_JSON_VALUE )
+
+	@PostMapping(value = "/saveUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public HttpEntity<UserRequest> welcome(@RequestBody UserRequest userRequest) {
 
 		UserRequest av = userService.save(userRequest);
-		
+
 		return new HttpEntity<UserRequest>(av);
 	}
 
